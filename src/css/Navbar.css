@@ -1,0 +1,22 @@
+
+
+.custom-navbar {
+    background-color: #343a40;
+  }
+  
+  .custom-navbar .navbar-brand {
+    color: #ffcc00;
+      }
+  
+  .custom-navbar .nav-link {
+    color: #ffffff; 
+  }
+  
+  .custom-navbar .nav-link:hover {
+    color: #ffcc00; 
+  }
+  
+  .custom-navbar .form-control {
+    border-radius: 0; 
+  }
+  
