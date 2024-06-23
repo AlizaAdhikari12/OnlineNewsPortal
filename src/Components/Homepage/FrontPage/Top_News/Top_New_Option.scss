@@ -1,0 +1,89 @@
+.top_news_option_section{
+    .top_news_option_title{
+      display: flex;
+      align-items: flex-start; 
+      padding: 1rem;
+      justify-content: space-between;
+      gap: 10px;
+      
+      
+  
+      .top_news_option_thumb{
+        width: 100px;
+        flex: 0 0 auto; // Ensures the thumbnail does not grow or shrink
+     
+        overflow: hidden;
+       order: 2;
+        .top_news_thumb_img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 1s ease;
+        }
+      }
+  
+      .top_news_option_numb {
+        flex: 1 1 auto; // Allows the content to take the remaining space
+        order: 1;
+      }
+  
+      .top_news_option_section_title {
+        color: inherit;
+        line-height: 1;
+        letter-spacing: 1px;
+        font-size: 14px;
+        display: inline;
+        padding-bottom: 0;
+        transition: background-size 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        background-image: linear-gradient(180deg, currentColor 0, currentColor 98%);
+        background-size: 0 1px;
+        background-repeat: no-repeat;
+        background-position: left 100%;
+      }
+  
+  
+      .top_news_section_cat {
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1.6;
+        color: rgb(76, 76, 77);
+  
+        &:hover {
+          color: red;
+          cursor: pointer;
+        }
+      }
+  
+      .publisher {
+        margin-bottom: 12px;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+  
+      .publisher li {
+        display: flex;
+        align-items: center;
+        color: gray;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.52px;
+        text-transform: uppercase;
+        gap: 10px;
+      }
+
+  
+      &:hover{
+        .top_news_option_section_title {
+            background-size: 100% 1px;
+          } .top_news_thumb_img {
+            transform: scale(1.2);
+          }
+      } 
+    
+    }
+  }
+  

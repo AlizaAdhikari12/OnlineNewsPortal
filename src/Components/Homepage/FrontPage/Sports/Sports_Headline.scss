@@ -1,0 +1,44 @@
+.sports-section{
+    .sportss-section-title-wrap{
+        position: relative;
+        
+    }
+
+    .title{
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: rgb(32, 32, 81);
+        font-weight: bold;
+        float: left;
+    }
+   
+    .sports-section-line{
+        margin-left: 12px;
+        width: 95%;
+        height: 5px;
+        background-color: rgb(249, 248, 248);
+        position: relative;
+        margin-top: 10px;
+        top: -5.5px;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: -1px;
+          width: 140px;
+          height: 5px;
+          background-color: rgb(243, 123, 44);
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 122px;
+          top: -1.5px;
+          height: 6px;
+          background-color: rgb(238, 239, 240);
+          width: 20px;
+          clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+    }
+}

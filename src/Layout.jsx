@@ -1,8 +1,8 @@
 import React from 'react'
-import Logo from './Components/logo';
-import Navbar from './Components/NavBar';
+import Logo from './Components/logo'
+import Navbar from './Components/Layout/Navbar/NavBar';
 import { Outlet } from "react-router-dom";
-import Homepage from './Components/Homepage/Homepage';
+import Footer from './Components/Footer/Footer';
 
 const Layout = () => {
   return (
@@ -10,6 +10,7 @@ const Layout = () => {
       <Logo/>
       <Navbar/>
       <Outlet/>
+     <Footer/>
     </div>
   )
 }

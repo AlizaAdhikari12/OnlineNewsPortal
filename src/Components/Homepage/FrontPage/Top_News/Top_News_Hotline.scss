@@ -1,0 +1,100 @@
+.top_news_first_section {
+    .top_news_title {
+      display: flex;
+      align-items: flex-start; 
+      padding: 1rem;
+  
+      .top_news_title_thumb {
+        width: 450px;
+        height: 450px;
+        flex: 0 0 auto; // Ensures the thumbnail does not grow or shrink
+        margin-right: 1rem; // Adds space between thumbnail and content
+        overflow: hidden;
+        margin-bottom: 10px;
+  
+        .top_news_thumb_img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 1s ease;
+        }
+      }
+  
+      .top_news_title_numb {
+        flex: 0 0 auto;
+         max-width: 350px;
+         overflow: hidden;
+        margin-bottom: 10px; 
+      }
+  
+      .top_news_section_title {
+        color: inherit;
+        margin-bottom: 12px;
+        font-weight: bold;
+        line-height: 1.4;
+        letter-spacing: 1px;
+        font-size: 22px;
+        display: inline;
+        padding-bottom: 0;
+        transition: background-size 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        background-image: linear-gradient(180deg, currentColor 0, currentColor 98%);
+        background-size: 0 1px;
+        background-repeat: no-repeat;
+        background-position: left 100%;
+      }
+  
+  
+      .top_news_section_cat_title {
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1.6;
+        color: rgb(76, 76, 77);
+  
+        &:hover {
+          color: red;
+          cursor: pointer;
+        }
+      }
+  
+      .publisher {
+        margin-bottom: 12px;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+  
+      .publisher li {
+        display: flex;
+        align-items: center;
+        color: gray;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.52px;
+        text-transform: uppercase;
+        gap: 10px;
+      }
+  
+      .writer:hover {
+        color: red;
+        cursor: pointer;
+      }
+  
+      .top_news_section_desc {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+  
+      &:hover{ .top_news_section_title{
+        background-size: 100% 1px;
+      } .top_news_thumb_img {
+        transform: scale(1.2);
+      }}
+     
+      
+    
+    }
+  }
+  
