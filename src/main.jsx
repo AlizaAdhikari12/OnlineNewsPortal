@@ -11,6 +11,9 @@ import Game from "./Components/Game/Game.jsx"
 import World from "./Components/World/World.jsx";
 import Entertainment from "./Components/Entertainment/Entertainment.jsx";
 import General from "./Components/Thought/General.jsx";
+import Filtered_Search from "./Components/Layout/Search/Filtered_Search.jsx";
+import Empty from "./Components/Layout/Search/Empty.jsx";
+import { Pagination } from "react-bootstrap";
 
 const router = createBrowserRouter([
   {
@@ -18,14 +21,16 @@ const router = createBrowserRouter([
     element :<Layout/>,
     children:[{
       path:"",
-      element:<App/>
+      element:<App/>,
     },{
       path:"Business",
-      element:<Business/>
+      element:<Business/>,
+      errorElement:<Empty/>
     },
     {
       path:"Game",
-      element:<Game/>
+      element:<Game/>,
+      
     },
   {
     path:"World",
@@ -38,11 +43,22 @@ const router = createBrowserRouter([
 {
   path:"General",
   element:<General/>
-}]
+},
+{
+  path:"Filtered_Search",
+  element:<Filtered_Search/>
+},{
+path:"Empty",
+element:<Empty/>},{
+  path:'Paginatiom',
+  element:<Pagination/>
+},
+],
+errorElement:<Empty/>
   }
 ])
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+
     <RouterProvider router={router}/>
-  </React.StrictMode>
+
 );

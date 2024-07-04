@@ -22,7 +22,7 @@ const Headline = () => {
         params: {
           country:"us",
           category: category,
-          apiKey: "066e5b38f5104c2695c06adf8af4ca2c"
+          apiKey: "300ad6828e164a278c705ebec7cbbfc3"
         }
       });
       console.log(response)

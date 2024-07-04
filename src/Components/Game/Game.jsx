@@ -5,17 +5,19 @@ import Card from 'react-bootstrap/Card';
 import { Container, Row, Spinner, Col } from "react-bootstrap";
 import './Game.scss'
 import Skeleton_Loading from "../Layout/Loading Component/Skeleton_Loading";
-
+import Pagination from "../Pagination";
 
 const Game = () => {
   const [sportsData,setSportsData] = useState([]);
+  const[currentPage,setcurrentPage]=useState(1)
+  const[postsPerPage]=useState(4);
   const fetchData = async (category,setData)=>{
     try{
       const response = await axios.get('https://newsapi.org/v2/top-headlines', {
         params: {
           category: category,
           country: 'us',
-          apiKey: '066e5b38f5104c2695c06adf8af4ca2c'
+          apiKey: '300ad6828e164a278c705ebec7cbbfc3'
         }
       });
       setData(response.data.articles)
@@ -25,16 +27,22 @@ const Game = () => {
   useEffect(()=>{
     fetchData("sports",setSportsData);
   },[])
+
+  // get current posts
+  const indexofLastPost = currentPage*postsPerPage;
+  const indexofFirstPage = indexofLastPost - postsPerPage;
+  const curentPosts = sportsData.slice(indexofFirstPage,indexofLastPost)
+  const paginate = pageNumber=>setcurrentPage(pageNumber);
   return (
     <>
       <Container>
         <Row className="mt-5">
        
-         { sportsData.length ===0 ?
+         { curentPosts.length ===0 ?
          (
           <Skeleton_Loading/>
          ):  (
-          sportsData.map((item, index) =>(
+          curentPosts.map((item, index) =>(
             <Card style={{ width: '18rem' }} key={index} className="Card">
                 <div className="card_numb">
                 <Card.Img variant="top" src={ item.urlToImage|| "https://placehold.co/800x400" }className="Card_image"/>
@@ -47,10 +55,9 @@ const Game = () => {
                   <Button className="readmore_buttom" href={item.url} >Read more</Button>
                 </Card.Body>
               </Card>
+     
          )))}
-            
-           
-       
+            <Pagination postsPerPage={postsPerPage} totalPosts ={sportsData.length} paginate={paginate}/> 
           </Row>
       </Container>
     </>

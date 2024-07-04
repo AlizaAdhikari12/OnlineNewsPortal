@@ -13,6 +13,7 @@ const Homepage = () => {
     <div>
      <Container>
         <Row className="mt-5">
+     
           <Col md={9}>
              <NewHeadline /> 
              <AdHomepage/>

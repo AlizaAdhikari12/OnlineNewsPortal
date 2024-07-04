@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Button, Container } from 'react-bootstrap';
+import { Row, Button, Container,Col } from 'react-bootstrap';
 import './Top_News_Hotline.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,7 @@ function Top_News_Hotline() {
         params: {
           country: "us",
           category: category,
-          apiKey: "066e5b38f5104c2695c06adf8af4ca2c"
+          apiKey: "300ad6828e164a278c705ebec7cbbfc3"
         }
       });
       setData(response.data.articles.slice(0, 1));
@@ -33,6 +33,7 @@ function Top_News_Hotline() {
   return (
     <Container>
       <Row className="top_news_first_section">
+        <Col>
         <div className="top_news_title">
           {politicsData.length === 0 ? (
             <React.Fragment >
@@ -91,6 +92,8 @@ function Top_News_Hotline() {
           )}
          
         </div>
+        </Col>
+        
       </Row>
       <Top_News_Option />
     </Container>

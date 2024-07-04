@@ -6,10 +6,10 @@ function Skeleton_Loading() {
   return (
     <div>
       <Container>
-        <Row mt-5>
+        <Row className="mt-5">
         {
             Array.from({ length: 4 }).map((_, index) => (
-          <Card style={{ width: '15rem' }}  className="Card">
+          <Card style={{ width: '15rem' }}  className="Card" key={index}>
           <div className="card_numb">
         <Skeleton height={150}/>
           </div>

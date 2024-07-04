@@ -4,17 +4,19 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Spinner, Col } from "react-bootstrap";
 import Skeleton_Loading from "../Layout/Loading Component/Skeleton_Loading";
-
+import Pagination from "../Pagination";
 
 const Entertainment = () => {
   const [entertainmentData,setEntertainmentData] = useState([]);
+  const[currentPage,setcurrentPage]=useState(1)
+  const[postsPerPage]=useState(4);
   const fetchData = async (category,setData)=>{
     try{
       const response = await axios.get('https://newsapi.org/v2/top-headlines', {
         params: {
           category: category,
           country: 'us',
-          apiKey: '066e5b38f5104c2695c06adf8af4ca2c'
+          apiKey: '300ad6828e164a278c705ebec7cbbfc3'
         }
       });
       setData(response.data.articles)
@@ -24,16 +26,20 @@ const Entertainment = () => {
   useEffect(()=>{
     fetchData("entertainment",setEntertainmentData);
   },[])
-  return (
+  const indexofLastPost = currentPage*postsPerPage;
+  const indexofFirstPost = indexofLastPost - postsPerPage;
+  const currentPosts = entertainmentData.slice(indexofFirstPost,indexofLastPost)
+  const paginate = pageNumber=>setcurrentPage(pageNumber);
+  return(
     <>
       <Container>
         <Row className="mt-5">
        
-         { entertainmentData.length ===0 ?
+         { currentPosts.length ===0 ?
          (
         <Skeleton_Loading/>
-         ):  (
-          entertainmentData.map((item, index) =>(
+         ):(
+          currentPosts.map((item, index) =>( 
             <Card style={{ width: '18rem' }} key={index} className="Card">
                 <div className="card_numb">
                 <Card.Img variant="top" src={ item.urlToImage|| "https://placehold.co/800x400"}className="Card_image"/>
@@ -46,14 +52,12 @@ const Entertainment = () => {
                   <Button className="readmore_buttom" href={item.url} >Read more</Button>
                 </Card.Body>
               </Card>
-         )))}
-            
-           
-       
+         )))}       
           </Row>
+          <Pagination postsPerPage={postsPerPage} totalPosts ={entertainmentData.length} paginate={paginate}/> 
       </Container>
     </>
-  );
-};
+  )
+  };
 
 export default Entertainment;

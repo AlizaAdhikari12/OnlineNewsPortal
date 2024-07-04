@@ -16,7 +16,7 @@ function Hot_News_Option() {
         params: {
           country: "us",
           category: category,
-          apiKey: "066e5b38f5104c2695c06adf8af4ca2c"
+          apiKey: "300ad6828e164a278c705ebec7cbbfc3"
         }
       });
       setData(response.data.articles.slice(0, 3)); // Fetch at least 3 articles
